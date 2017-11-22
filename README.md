@@ -1,3 +1,3 @@
 # laravel-repositories
 
-<pre>READEME.md in process...</pre>
+<pre>Installation notes and quick start quides in progress...</pre>
