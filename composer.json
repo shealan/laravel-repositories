@@ -1,0 +1,21 @@
+{
+    "name": "getwes/laravel-repositories",
+    "description": "An Eloquent repository package for Laravel 5",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wes Murray",
+            "email": "wes.murray@icloud.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WesMurray\\Repositories\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "illuminate/database": ">=5.0",
+        "illuminate/support": ">=5.0"
+    }
+}
