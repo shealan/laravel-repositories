@@ -102,8 +102,9 @@ public function findBySlug($id);
 </pre>
 
 <pre>
-<strong>Pro Tip:</strong>
-Need more methods? Create a fork of this repository... Add more custom methods and create a pull request for review.
+<strong>Need more custom methods?</strong>
+Contribute by creating a <code>fork</code> of this repository... <br> 
+Add more custom methods and <code>create a pull request</code> for review.
 </pre>
 
 Criteria and Eager Loading guides to follow...
