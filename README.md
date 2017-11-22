@@ -1,25 +1,24 @@
 # Laravel Repositories
-<p>
 Laravel Repositories is a package for Laravel 5 that abstracts the database layer, making your app easier to maintain.
-</p>
+
 
 ## Installation
-<p>Run the following command:</p>
+Run the following command:
 
 <pre>
 composer require getwes/laravel-repositories
 </pre>
 
-<p>Add the <code>RepositoryServiceProvider</code> to your <code>config.app</code> file in the providers array.</p>
+Add the <code>RepositoryServiceProvider</code> to your <code>config.app</code> file in the providers array.
 
 <pre>
 WesMurray\Repositories\RepositoryServiceProvider::class
 </pre>
 
-<p>Once you have added the service provider to your config file, you can run <code>php artisan vendor:publish</code> to publish the <code>repository.php</code> config file.</p>
+Once you have added the service provider to your config file, you can run <code>php artisan vendor:publish</code> to publish the <code>repository.php</code> config file.
 
 ## Basic Usage
-<p>Let's create a <code>user repository</code> class, Note that any concrete repository class MUST extend <code>WesMurray\Repositories\RepositoryAbstract</code> class and implement a <code>model()</code> method.</p>
+Let's create a <code>user repository</code> class, Note that any concrete repository class MUST extend <code>WesMurray\Repositories\RepositoryAbstract</code> class and implement a <code>model()</code> method.
 
 <pre>
 &lt?php
@@ -40,9 +39,9 @@ class UserRepository extends RepositoryAbstract implements RepositoryInterface
 
 ## Configuration
 
-<p>Let's update our <code>repository.php</code> configuration file with the repository interface and concrete repository implementation, so the <code>RepositoryServiceProvider</code> can bind them into the application.</p>
+Let's update our <code>repository.php</code> configuration file with the repository interface and concrete repository implementation, so the <code>RepositoryServiceProvider</code> can bind them into the application.
 
-<p><code>repository.php</code></p>
+<code>repository.php</code>
 <pre>
 &lt?php
 
@@ -56,9 +55,9 @@ return [
 ];
 </pre>
 
-<p>This saves you time NOT having to create your own <code>service provider</code> to bind the repository services to your application.</p>
+This saves you time NOT having to create your own <code>service provider</code> to bind the repository services to your application.
 
-<p>And finally, use the repository in the controller:</p>
+And finally, use the repository in the controller:
 <pre>
 &lt?php
 
@@ -85,7 +84,8 @@ class UserController extends Controller
 </pre>
 
 ## Available Methods
-<p>The following methods are available:</p>
+The following methods are available:
+<br>
 <code>WesMurray\Repositories\Traits\RepositoryAbstractMethodsTrait</code>
 
 <pre>
@@ -100,4 +100,4 @@ public function findByLogin($id);
 public function findBySlug($id);
 </pre>
 
-<p>Criteria and Eager Loading usage to follow...</p>
+Criteria and Eager Loading usage to follow...
