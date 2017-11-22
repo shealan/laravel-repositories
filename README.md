@@ -101,6 +101,9 @@ public function findByLogin($id);
 public function findBySlug($id);
 </pre>
 
-<code>Need more methods? Create a fork of this repository... Add more custom methods and create a pull request for review.</code>
+<pre>
+<strong>Pro Tip:</strong>
+Need more methods? Create a fork of this repository... Add more custom methods and create a pull request for review.
+</pre>
 
 Criteria and Eager Loading guides to follow...
