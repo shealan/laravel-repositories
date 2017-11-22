@@ -42,7 +42,7 @@ class UserRepository extends RepositoryAbstract implements RepositoryInterface
 
 <p>Let's update our <code>repository.php</code> configuration file with the repository interface and concrete repository implementation, so the <code>RepositoryServiceProvider</code> can bind them into the application.</p>
 
-<p><code>repository.php</code>
+<p><code>repository.php</code></p>
 <pre>
 &lt?php
 
@@ -72,22 +72,11 @@ class UserController extends Controller
 {
     protected $users;
     
-    /**
-     * Create the repository instance
-     *
-     * @param \App\Repositories\Contracts\UserRepository $users
-     * @return void
-     */
     public function __construct(UserRepository $users)
     {
         $this->users = $users;
     }
     
-    /**
-     * Handle a request to display a listing of users
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return $this->users->get();
