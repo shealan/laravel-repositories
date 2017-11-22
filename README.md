@@ -27,6 +27,7 @@ namespace App\Repositories;
 
 use App\User;
 use WesMurray\Repositories\RepositoryAbstract;
+use App\Repositories\Contracts\UserRepository as RepositoryInterface;
 
 class UserRepository extends RepositoryAbstract implements RepositoryInterface
 {
@@ -41,7 +42,7 @@ class UserRepository extends RepositoryAbstract implements RepositoryInterface
 
 Let's update our <code>repository.php</code> configuration file with the repository interface and concrete repository implementation, so the <code>RepositoryServiceProvider</code> can bind them into the application.
 
-<code>repository.php</code>
+<code>config/repository.php</code>
 <pre>
 &lt?php
 
