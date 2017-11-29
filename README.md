@@ -110,7 +110,7 @@ Contribute by creating a <code>fork</code> of this repository... Update and <cod
 Criteria is a easy way to apply conditions to your query. Note your critiera class must extend the <code>WesMurray\Repositories\Criteria\CriterionInterface</code>.
 
 ### Example
-Let's get a listing of users that must be verified before they can be displayed in the application.
+Let's get a listing of `users` that must be `verified` before they can be displayed in the application.
 
 In your <code>App\Http\Controllers\UserController.php</code>, lets add the criteria.
 
@@ -160,3 +160,35 @@ class UserMustBeVerified extends CriterionInterface
 </pre>
 
 ## Eager Loading
+Sometimes you may want to load relationships into your query.
+
+### Example
+Let's extend our listing of `users` and also get all of their `posts` they have created.
+
+<pre>
+&lt?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Request;
+use App\Http\Controllers\Controller;
+Use App\Repositories\Contracts\UserRepository;
+
+use App\Repositories\Criteria\UserMustBeVerified;
+use App\Repositories\Criteria\EagerLoad;
+
+class UserController extends Controller
+{
+    protected $users;
+    
+    public function __construct(UserRepository $users)
+    {
+        $this->users = $users;
+    }
+    
+    public function index()
+    {
+        return $this->users->withCriteria([new UserMustBeVerified(), new EagerLoad('posts')])->get();
+    }
+}
+</pre>
