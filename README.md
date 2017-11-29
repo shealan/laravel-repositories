@@ -151,7 +151,7 @@ namespace App\Repositories\Criteria;
 
 use WesMurray\Repositories\Criteria\CriterionInterface;
 
-class UserMustBeVerified extends CriterionInterface
+class UserMustBeVerified implements CriterionInterface
 {
     public function apply($model)
     {
