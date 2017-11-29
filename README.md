@@ -106,4 +106,59 @@ public function findBySlug($id);
 Contribute by creating a <code>fork</code> of this repository... Update and <code>create a pull request</code> for review.
 </pre>
 
-Criteria and Eager Loading guides to follow...
+## Criteria
+Criteria is a easy way to apply conditions to your query. Note your critiera class must extend the <code>WesMurray\Repositories\Criteria\CriterionInterface</code>.
+
+### Example
+Let's get a listing of users that must be verified before they can be displayed in the application.
+
+In your <code>App\Http\Controllers\UserController.php</code>, lets add the criteria.
+
+<pre>
+&lt?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Request;
+use App\Http\Controllers\Controller;
+Use App\Repositories\Contracts\UserRepository;
+
+use App\Repositories\Criteria\UserMustBeVerified;
+
+class UserController extends Controller
+{
+    protected $users;
+    
+    public function __construct(UserRepository $users)
+    {
+        $this->users = $users;
+    }
+    
+    public function index()
+    {
+        return $this->users->withCriteria(new UserMustBeVerified())->get();
+    }
+}
+</pre>
+
+Let's create the <code>App\Repositories\Criteria\UserMustBeVerified.php</code>.
+
+<pre>
+&lt?php
+
+namespace App\Repositories\Criteria;
+
+use WesMurray\Repositories\Criteria\CriterionInterface;
+
+class UserMustBeVerified extends CriterionInterface
+{
+    public function apply($model)
+    {
+        return $model->whereNotNull('verified_at');
+    }
+}
+</pre>
+
+Now, when you run the query, only users with a `timestamp` value in the `private_at` column in the users table will be shown in the application.
+
+## Eager Loading
