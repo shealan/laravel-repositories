@@ -159,6 +159,4 @@ class UserMustBeVerified extends CriterionInterface
 }
 </pre>
 
-Now, when you run the query, only users with a `timestamp` value in the `private_at` column in the users table will be shown in the application.
-
 ## Eager Loading
