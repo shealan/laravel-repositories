@@ -165,6 +165,8 @@ Sometimes you may want to load relationships into your query.
 ### Example
 Let's extend our listing of `users` and also get all of their `posts` they have created.
 
+<code>App\Http\Controllers\UserController.php</code>
+
 <pre>
 &lt?php
 
@@ -188,7 +190,10 @@ class UserController extends Controller
     
     public function index()
     {
-        return $this->users->withCriteria([new UserMustBeVerified(), new EagerLoad('posts')])->get();
+        return $this->users->withCriteria([
+            new UserMustBeVerified(), new EagerLoad('posts')
+        ])->get();
     }
 }
 </pre>
+
