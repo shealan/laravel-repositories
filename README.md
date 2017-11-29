@@ -197,3 +197,23 @@ class UserController extends Controller
 }
 </pre>
 
+Let's add the relationship to our `User.php` Model.
+
+<code>App\User.php</code>
+
+
+<pre>
+&lt?php
+
+namespace App;
+
+class User extends Model
+{
+    //
+    
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+}
+</pre>
