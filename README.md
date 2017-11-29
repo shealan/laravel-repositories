@@ -123,6 +123,7 @@ use App\Http\Request;
 use App\Http\Controllers\Controller;
 Use App\Repositories\Contracts\UserRepository;
 
+// Import Criteria
 use App\Repositories\Criteria\UserMustBeVerified;
 
 class UserController extends Controller
@@ -160,7 +161,7 @@ class UserMustBeVerified extends CriterionInterface
 </pre>
 
 ## Eager Loading
-Sometimes you may want to load relationships into your query.
+Sometimes you may want to load relationships into your query. You can also apply `eager loading` along with additional criteria if you have any already defined.
 
 ### Example
 Let's extend our listing of `users` and also get all of their `posts` they have created.
@@ -176,8 +177,11 @@ use App\Http\Request;
 use App\Http\Controllers\Controller;
 Use App\Repositories\Contracts\UserRepository;
 
+// Import Criteria
 use App\Repositories\Criteria\UserMustBeVerified;
-use App\Repositories\Criteria\EagerLoad;
+
+// Import EagerLoad
+use WesMurray\Repositories\Eloquent\Criteria\EagerLoad;
 
 class UserController extends Controller
 {
@@ -197,23 +201,6 @@ class UserController extends Controller
 }
 </pre>
 
-Let's add the relationship to our `User.php` Model.
+<hr><hr>
 
-<code>App\User.php</code>
-
-
-<pre>
-&lt?php
-
-namespace App;
-
-class User extends Model
-{
-    //
-    
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
-}
-</pre>
+Code with <3 by <a href="https://github.com/getwes">getwes</a>
