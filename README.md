@@ -201,6 +201,6 @@ class UserController extends Controller
 }
 </pre>
 
-<hr><hr>
+<hr>
 
 Code with <3 by <a href="https://github.com/getwes">getwes</a>
