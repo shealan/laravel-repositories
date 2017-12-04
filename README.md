@@ -97,7 +97,7 @@ public function delete($id);
 public function forceDelete($id); // If SoftDeletes() are enabled.
 public function paginate($count);
 public function findById($id);
-public function findByLogin($id);
+public function findByLogin($username);
 public function findBySlug($id);
 </pre>
 
