@@ -1,6 +1,7 @@
 # Laravel Repositories
 Laravel Repositories is a package for Laravel 5 that abstracts the database layer, making your app easier to maintain.
 
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)]()
 
 ## Installation
 Run the following command:
