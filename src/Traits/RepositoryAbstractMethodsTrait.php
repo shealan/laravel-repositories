@@ -21,10 +21,10 @@ trait RepositoryAbstractMethodsTrait
     }
     
     /**
-     * @param int $id
+     * @param int $uuid
      * @param array $data
      */
-    public function update($id, array $data)
+    public function update($uuid, array $data)
     {
         return $this->model->update($id, $data);
     }
@@ -32,17 +32,17 @@ trait RepositoryAbstractMethodsTrait
     /**
      * @param int $id
      */
-    public function delete($id)
+    public function delete($uuid)
     {
-        return $this->model->delete($id);
+        return $this->model->whereUuid($uuid)->delete();
     }
     
     /**
      * @param int $id
      */
-    public function forceDelete($id)
+    public function forceDelete($uuid)
     {
-        return $this->model->forceDelete($id);
+        return $this->model->whereUuid($uuid)->forceDelete();
     }
     
     /**
@@ -54,11 +54,19 @@ trait RepositoryAbstractMethodsTrait
     }
     
     /**
+     * @param int $uuid
+     */
+    public function findById($uuid)
+    {
+        return $this->model->whereUuid($uuid)->firstOrFail();
+    }
+    
+    /**
      * @param int $id
      */
     public function findById($id)
     {
-        return $this->model->findOrFail($id);
+        return $this->model->firstOrFail($id);
     }
     
     /**
